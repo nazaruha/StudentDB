@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StudentsDB.Models
+{
+    class Student
+    {
+        public int Id { get; set; }
+        public string FullName { get; set; }
+        public string Phone { get; set; }
+        public int GroupsId { get; set; }
+
+        public Student()
+        {
+
+        }
+
+        public override string ToString()
+        {
+            return $"{Id} | {FullName} | {Phone} | {GroupsId}";
+        }
+    }
+}

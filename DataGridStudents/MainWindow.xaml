@@ -1,0 +1,30 @@
+﻿<Window x:Class="DataGridStudents.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataGridStudents"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="441" Width="815">
+    <DockPanel>
+        <DataGrid Name="dgStudents" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue" VerticalScrollBarVisibility="Visible" Width="629">
+
+        </DataGrid>
+        <StackPanel DockPanel.Dock="Right">
+            <Image Name="Reset_img" Source="/Reload-2-2-icon.png" Height="33" Width="38" HorizontalAlignment="Right" VerticalAlignment="Stretch" MouseDown="Reset_img_MouseDown" Margin="0,0,2,0" />
+            <Button Name="Create_btn" Margin="0,13,0,0" Height="24" Width="117" FontSize="16" FontWeight="DemiBold" Background="#FF7EBF93" Click="Create_btn_Click">Create</Button>
+            <Button Name="Update_btn" Margin="0,13,0,0" Height="24" Width="117" FontSize="16" FontWeight="DemiBold" Background="#FFDEB368" Click="Update_btn_Click">Update</Button>
+            <Button Name="Delete_btn" Margin="0,13,0,0" Height="24" Width="117" FontSize="16" FontWeight="DemiBold" Background="#FFDE7D68" Click="Delete_btn_Click">Delete</Button>
+            <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,211,0,0">
+                <TextBox Name="TimeElapsed_txt" IsReadOnly="True" FontSize="9" FontWeight="Bold" TextAlignment="Center" Width="156" HorizontalAlignment="Center" Background="{x:Null}" BorderBrush="White"/>
+                <WrapPanel VerticalAlignment="Stretch" Margin="0,5,0,0" Orientation="Horizontal">
+                    <Image Name="PrevPage_img" Source="/Actions-go-previous-view-icon.png" Height="27" Width="29" MouseDown="PrevPage_img_MouseDown"/>
+                    <TextBox Name="PageOfPages_txt" IsReadOnly="True" Text="1 of 10" FontSize="15" FontWeight="Bold" TextAlignment="Center" Width="113"/>
+                    <Image Name="NextPage_img" Height="27" Width="29" Source="/Actions-go-next-view-icon.png" MouseDown="NextPage_img_MouseDown"/>
+                </WrapPanel>
+            </StackPanel>
+
+        </StackPanel>
+
+    </DockPanel>
+</Window>

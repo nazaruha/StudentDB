@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentsDB", "StudentsDB\StudentsDB.csproj", "{3C47C28C-7EF1-4446-BDDB-C8E4FD257973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataGridStudents", "DataGridStudents\DataGridStudents.csproj", "{D2862D97-3C79-4995-92E5-295445B62214}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C47C28C-7EF1-4446-BDDB-C8E4FD257973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C47C28C-7EF1-4446-BDDB-C8E4FD257973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C47C28C-7EF1-4446-BDDB-C8E4FD257973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C47C28C-7EF1-4446-BDDB-C8E4FD257973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2862D97-3C79-4995-92E5-295445B62214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2862D97-3C79-4995-92E5-295445B62214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2862D97-3C79-4995-92E5-295445B62214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2862D97-3C79-4995-92E5-295445B62214}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C98EA0F8-46AF-46DD-851C-D938AFC1E34E}
+	EndGlobalSection
+EndGlobal

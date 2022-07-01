@@ -7,8 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="441" Width="815">
     <DockPanel>
-        <DataGrid Name="dgStudents" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue" VerticalScrollBarVisibility="Visible" Width="629">
-
+        <DataGrid Name="dgStudents" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue" VerticalScrollBarVisibility="Visible" Width="629" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="FullName" Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="GroupName" Binding="{Binding GroupName}"/>
+            </DataGrid.Columns>
         </DataGrid>
         <StackPanel DockPanel.Dock="Right">
             <Image Name="Reset_img" Source="/Reload-2-2-icon.png" Height="33" Width="38" HorizontalAlignment="Right" VerticalAlignment="Stretch" MouseDown="Reset_img_MouseDown" Margin="0,0,2,0" />

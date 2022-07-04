@@ -4,7 +4,6 @@ C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\bin\Debug
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\bin\Debug\net5.0-windows\DataGridStudents.runtimeconfig.json
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\bin\Debug\net5.0-windows\DataGridStudents.runtimeconfig.dev.json
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\bin\Debug\net5.0-windows\DataGridStudents.dll
-C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\bin\Debug\net5.0-windows\ref\DataGridStudents.dll
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\bin\Debug\net5.0-windows\DataGridStudents.pdb
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.dll
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -43,3 +42,4 @@ C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\obj\Debug
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\obj\Debug\net5.0-windows\DataGridStudents.genruntimeconfig.cache
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\obj\Debug\net5.0-windows\CreateStudentWindow.g.cs
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\obj\Debug\net5.0-windows\CreateStudentWindow.baml
+C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\DataGridStudents\obj\Debug\net5.0-windows\refint\DataGridStudents.dll

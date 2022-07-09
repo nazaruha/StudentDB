@@ -49,3 +49,8 @@ C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\StudentsDB\obj\Debug\Stude
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\StudentsDB\obj\Debug\StudentsDB.csproj.CopyComplete
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\StudentsDB\obj\Debug\StudentsDB.exe
 C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\StudentsDB\obj\Debug\StudentsDB.pdb
+C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\StudentsDB\obj\Debug\StudentsDB.csproj.SuggestedBindingRedirects.cache
+C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\StudentsDB\bin\Debug\SqlTables\tblGroups.sql
+C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\StudentsDB\bin\Debug\SqlTables\tblStudentSubjects.sql
+C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\StudentsDB\bin\Debug\SqlTables\tblSubjects.sql
+C:\Users\38096\Source\Repos\STEP\7) MS SQL\StudentsDB\StudentsDB\bin\Debug\SqlTables\tblStudents.sql

@@ -46,7 +46,7 @@ namespace StudentsDB
             cmd = con.CreateCommand(); // creating command
             //GenerateTables();
             //GenerateGroups();
-            GenerateSubjects();
+            //GenerateSubjects();
 
             //cmd.CommandText = "SELECT g.Id " +
             //    $"FROM {GroupsTable} AS g";
@@ -148,9 +148,8 @@ namespace StudentsDB
             return sql;
         }
 
-        static void GenerateGroups()
+        static void GenerateGroups(int count = 10)
         {
-            int count = 10;
 
             string letters = "QqWwEeRrTtYyUuIiOoPpAaSsDdFfGgHhJjKkLlZzXxCcVvBbNnMm";
             string numbers = "1234567890";

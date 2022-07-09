@@ -47,6 +47,7 @@ namespace StudentsDB
             //GenerateTables();
             //GenerateGroups();
             //GenerateSubjects();
+            GenerateStudents();
 
             //cmd.CommandText = "SELECT g.Id " +
             //    $"FROM {GroupsTable} AS g";
@@ -213,6 +214,61 @@ namespace StudentsDB
                 bulkCopy.DestinationTableName = "tblSubjects";
                 bulkCopy.WriteToServer(dt);
             }
+        }
+
+        static void GenerateStudents(int count = 10)
+        {
+
+            Faker<Student> faker = new Faker<Student>("uk")
+                .RuleFor(s => s.FullName, (f, u) => f.Name.FullName())
+                .RuleFor(s => s.Phone, (f, u) => f.Phone.PhoneNumberFormat());
+
+            List<int> groupsId = GetGroupsId();
+            List<Student> students = new List<Student>();
+            Random rand = new Random();
+            for (int i = 0; i < count; i++)
+            {
+                var student = faker.Generate();
+                student.GroupsId = groupsId[rand.Next(0, groupsId.Count - 1)];
+                students.Add(student);
+            }
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn(nameof(Student.Id)));
+            dt.Columns.Add(new DataColumn(nameof(Student.FullName)));
+            dt.Columns.Add(new DataColumn(nameof(Student.Phone)));
+            dt.Columns.Add(new DataColumn(nameof(Student.GroupsId)));
+
+            for (int i = 0; i < count; i++)
+            {
+                DataRow row = dt.NewRow();
+                row[nameof(Student.Id)] = students[i].Id;
+                row[nameof(Student.FullName)] = students[i].FullName;
+                row[nameof(Student.Phone)] = students[i].Phone;
+                row[nameof(Student.GroupsId)] = students[i].GroupsId;
+                dt.Rows.Add(row);
+            }
+            using (SqlBulkCopy bulkCopy = new SqlBulkCopy(con))
+            {
+                bulkCopy.DestinationTableName = "tblStudents";
+                bulkCopy.WriteToServer(dt);
+            }
+        }
+
+        static List<int> GetGroupsId()
+        {
+            cmd.CommandText = "SELECT Id " +
+                "FROM tblGroups";
+
+            List<int> groupsId = new List<int>();
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    groupsId.Add(Int32.Parse(reader["Id"].ToString()));
+                }
+            }
+            return groupsId;
         }
 
     }

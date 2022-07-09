@@ -44,8 +44,9 @@ namespace StudentsDB
             con = new SqlConnection(connectionDB + $"Initial Catalog={database}");
             con.Open();
             cmd = con.CreateCommand(); // creating command
-            GenerateTables();
-            GenerateGroups();
+            //GenerateTables();
+            //GenerateGroups();
+            GenerateSubjects();
 
             //cmd.CommandText = "SELECT g.Id " +
             //    $"FROM {GroupsTable} AS g";
@@ -167,7 +168,8 @@ namespace StudentsDB
                     groupNames[i] += numbers[rand.Next(0, numbers.Length - 1)];
                 }
 
-                if (Array.IndexOf(groupNames, groupNames[i]) != i)
+                int groupCurrentIndex = Array.IndexOf(groupNames, groupNames[i]);
+                if (groupCurrentIndex != i && groupCurrentIndex != -1)
                     i--;
             }
 

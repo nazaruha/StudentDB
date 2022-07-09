@@ -47,7 +47,8 @@ namespace StudentsDB
             //GenerateTables();
             //GenerateGroups();
             //GenerateSubjects();
-            GenerateStudents();
+            //GenerateStudents();
+            GenerateStudentSubjects();
 
             //cmd.CommandText = "SELECT g.Id " +
             //    $"FROM {GroupsTable} AS g";
@@ -270,6 +271,74 @@ namespace StudentsDB
             }
             return groupsId;
         }
+
+        static void GenerateStudentSubjects()
+        {
+            List<int> marks = new List<int>()
+            {
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+            };
+            List<int> subjectsId = GetSubjectsId();
+            List<int> studentsId = GetStudentsId();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("StudentId");
+            dt.Columns.Add("SubjectId");
+            dt.Columns.Add("Mark");
+
+            Random rand = new Random();
+            for (int i = 0; i < studentsId.Count; i++)
+            {
+                for (int j = 0; j < subjectsId.Count; j++)
+                {
+                    DataRow row = dt.NewRow();
+                    row["StudentId"] = studentsId[i];
+                    row["SubjectId"] = subjectsId[j];
+                    row["Mark"] = marks[rand.Next(0, marks.Count - 1)];
+                    dt.Rows.Add(row);
+                }
+                
+            }
+            using (SqlBulkCopy bulkCopy = new SqlBulkCopy(con))
+            {
+                bulkCopy.DestinationTableName = "tblStudentSubjects";
+                bulkCopy.WriteToServer(dt);
+            }
+
+        }
+
+        static List<int> GetSubjectsId()
+        {
+            cmd.CommandText = "SELECT Id " +
+                "FROM tblSubjects";
+
+            List<int> subjectsId = new List<int>();
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    subjectsId.Add(Int32.Parse(reader["Id"].ToString()));
+                }
+            }
+            return subjectsId;
+        }
+
+        static List<int> GetStudentsId()
+        {
+            cmd.CommandText = "SELECT Id " +
+                "FROM tblStudents";
+                         
+            List<int> studentsId = new List<int>();
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    studentsId.Add(Int32.Parse(reader["Id"].ToString()));
+                }
+            }
+            return studentsId;
+        }
+
 
     }
 }

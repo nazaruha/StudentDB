@@ -192,5 +192,27 @@ namespace StudentsDB
             }
         }
 
+        static void GenerateSubjects()
+        {
+            string[] subjects = { "OS", "Diagrams", "C++ OP", "C++ OOP", "C#", "Win Forms (C#)", "WPF C#", "SQL Management Studio" };
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Name");
+
+            for (int i = 0; i < subjects.Length; i++)
+            {
+                DataRow row = dt.NewRow();
+                row["Id"] = 0;
+                row["Name"] = subjects[i];
+                dt.Rows.Add(row);
+            }
+            using (SqlBulkCopy bulkCopy = new SqlBulkCopy(con))
+            {
+                bulkCopy.DestinationTableName = "tblSubjects";
+                bulkCopy.WriteToServer(dt);
+            }
+        }
+
     }
 }

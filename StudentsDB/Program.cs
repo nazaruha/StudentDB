@@ -18,8 +18,6 @@ namespace StudentsDB
     {
         static string database = "StudentsDB";
         static string dirSql = "SqlTables";
-        static string StudentsTable = "tblStudents";
-        static string GroupsTable = "tblGroups";
         static SqlConnection con;
         static SqlCommand cmd;
 

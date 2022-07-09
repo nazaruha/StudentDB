@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using Bogus.DataSets;
 using Microsoft.Extensions.Configuration;
 using StudentsDB.Models;
 using System;
@@ -44,6 +45,7 @@ namespace StudentsDB
             con.Open();
             cmd = con.CreateCommand(); // creating command
             GenerateTables();
+            GenerateGroups();
 
             //cmd.CommandText = "SELECT g.Id " +
             //    $"FROM {GroupsTable} AS g";
@@ -143,6 +145,51 @@ namespace StudentsDB
         {
             string sql = File.ReadAllText($"{dirSql}\\{file}");
             return sql;
+        }
+
+        static void GenerateGroups()
+        {
+            int count = 10;
+
+            string letters = "QqWwEeRrTtYyUuIiOoPpAaSsDdFfGgHhJjKkLlZzXxCcVvBbNnMm";
+            string numbers = "1234567890";
+
+            string[] groupNames = new string[count];
+            Random rand = new Random();
+            for (int i = 0; i < count; i++)
+            {
+                for (int l = 0; l < 2; l++)
+                {
+                    groupNames[i] += letters[rand.Next(0, letters.Length - 1)];
+                }
+                for (int n = 0; n < 3; n++)
+                {
+                    groupNames[i] += numbers[rand.Next(0, numbers.Length - 1)];
+                }
+
+                if (Array.IndexOf(groupNames, groupNames[i]) != i)
+                    i--;
+            }
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("DateCreate");
+
+            RandomDateTime date = new RandomDateTime();
+            for (int i = 0; i < count; i++)
+            {
+                DataRow row = dt.NewRow();
+                row["Id"] = 0;
+                row["Name"] = groupNames[i];
+                row["DateCreate"] = date.Next();
+                dt.Rows.Add(row);
+            }
+            using (SqlBulkCopy bulkCopy = new SqlBulkCopy(con))
+            {
+                bulkCopy.DestinationTableName = "tblGroups";
+                bulkCopy.WriteToServer(dt);
+            }
         }
 
     }

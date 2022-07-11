@@ -117,7 +117,7 @@ namespace DataGridStudents {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/DataGridStudents;V1.0.0.0;component/createstudentwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/DataGridStudents;component/createstudentwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\CreateStudentWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

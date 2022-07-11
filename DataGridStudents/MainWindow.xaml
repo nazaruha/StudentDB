@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="441" Width="815">
     <DockPanel>
-        <DataGrid Name="dgStudents" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue" VerticalScrollBarVisibility="Visible" Width="629" AutoGenerateColumns="False">
+        <DataGrid Name="dgStudents" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue" VerticalScrollBarVisibility="Visible" Width="629" AutoGenerateColumns="False" SelectionChanged="dgStudents_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50"/>
                 <DataGridTextColumn Header="FullName" Binding="{Binding FullName}" Width="200"/>
@@ -17,12 +17,15 @@
             </DataGrid.Columns>
             <DataGrid.RowDetailsTemplate>
                 <DataTemplate>
-                    <DataGrid>
+                    <!--<DataGrid Name="dgStudentMark">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Subject" Width="100"/>
-                            <DataGridTextColumn Header="Mark" Width="80"/>
+                            <DataGridTextColumn Header="Subject" Binding="{Binding Subjects}" Width="100"/>
+                            <DataGridTextColumn Header="Mark" Binding="{Binding Marks}" Width="80"/>
                         </DataGrid.Columns>
-                    </DataGrid>
+                    </DataGrid>-->
+                    <ListView Name="lvDataBinding">
+                        <TextBlock Text="{Binding SubjectsAndMarks}"/>
+                    </ListView>
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
         </DataGrid>

@@ -9,17 +9,18 @@
     <DockPanel>
         <DataGrid Name="dgStudents" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue" VerticalScrollBarVisibility="Visible" Width="629" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="FullName" Binding="{Binding FullName}"/>
-                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="FullName" Binding="{Binding FullName}" Width="200"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="130"/>
                 <DataGridTextColumn Header="GroupName" Binding="{Binding GroupName}"/>
+                <DataGridTextColumn Header="Date Create" Binding="{Binding DateCreate}" Width="110"/>
             </DataGrid.Columns>
             <DataGrid.RowDetailsTemplate>
                 <DataTemplate>
                     <DataGrid>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Subject"/>
-                            <DataGridTextColumn Header="Mark"/>
+                            <DataGridTextColumn Header="Subject" Width="100"/>
+                            <DataGridTextColumn Header="Mark" Width="80"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </DataTemplate>

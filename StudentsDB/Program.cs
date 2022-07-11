@@ -93,7 +93,6 @@ namespace StudentsDB
 
         static void GenerateGroups(int count = 10)
         {
-
             string letters = "QqWwEeRrTtYyUuIiOoPpAaSsDdFfGgHhJjKkLlZzXxCcVvBbNnMm";
             string numbers = "1234567890";
 
@@ -171,7 +170,8 @@ namespace StudentsDB
             for (int i = 0; i < count; i++)
             {
                 var student = faker.Generate();
-                student.GroupsId = groupsId[rand.Next(0, groupsId.Count - 1)];
+                int r = rand.Next(0, groupsId.Count - 1);
+                student.GroupsId = groupsId[r];
                 students.Add(student);
             }
 

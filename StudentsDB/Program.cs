@@ -20,6 +20,8 @@ namespace StudentsDB
         static string dirSql = "SqlTables";
         static SqlConnection con;
         static SqlCommand cmd;
+        static int StudentGenerateCount = 0;
+        static int StudentsCountToFetch = 0;
 
         static void Main(string[] args)
         {
@@ -42,9 +44,10 @@ namespace StudentsDB
             con = new SqlConnection(connectionDB + $"Initial Catalog={database}");
             con.Open();
             cmd = con.CreateCommand(); // creating command
-            GenerateTables();
-            GenerateGroups();
-            GenerateSubjects();
+            //GenerateTables();
+            //GenerateGroups();
+            //GenerateSubjects();
+            StudentsCountToFetch = GetStudentsCount();
             GenerateStudents();
             GenerateStudentSubjects();
         }
@@ -155,9 +158,9 @@ namespace StudentsDB
             }
         }
 
-        static void GenerateStudents(int count = 10)
+        static void GenerateStudents(int count = 100)
         {
-
+            StudentGenerateCount = count;
             Faker<Student> faker = new Faker<Student>("uk")
                 .RuleFor(s => s.FullName, (f, u) => f.Name.FullName())
                 .RuleFor(s => s.Phone, (f, u) => f.Phone.PhoneNumberFormat());
@@ -245,6 +248,18 @@ namespace StudentsDB
 
         }
 
+        static int GetStudentsCount()
+        {
+            cmd.CommandText = "SELECT COUNT(*) " +
+                "FROM tblStudents";
+
+            var reader = cmd.ExecuteReader();
+            reader.Read();
+            int count = Int32.Parse(reader[0].ToString());
+            reader.Close();
+            return count;
+        }
+
         static List<int> GetSubjectsId()
         {
             cmd.CommandText = "SELECT Id " +
@@ -264,7 +279,10 @@ namespace StudentsDB
         static List<int> GetStudentsId()
         {
             cmd.CommandText = "SELECT Id " +
-                "FROM tblStudents";
+                "FROM tblStudents " +
+                "ORDER BY Id " +
+                $"OFFSET {StudentsCountToFetch} ROWS " +
+                $"FETCH NEXT {StudentGenerateCount} ROWS ONLY";
                          
             List<int> studentsId = new List<int>();
             using (var reader = cmd.ExecuteReader())

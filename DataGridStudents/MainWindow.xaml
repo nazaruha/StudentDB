@@ -14,6 +14,16 @@
                 <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
                 <DataGridTextColumn Header="GroupName" Binding="{Binding GroupName}"/>
             </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <DataGrid>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Subject"/>
+                            <DataGridTextColumn Header="Mark"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
         </DataGrid>
         <StackPanel DockPanel.Dock="Right">
             <Image Name="Reset_img" Source="/Reload-2-2-icon.png" Height="33" Width="38" HorizontalAlignment="Right" VerticalAlignment="Stretch" MouseDown="Reset_img_MouseDown" Margin="0,0,2,0" />
